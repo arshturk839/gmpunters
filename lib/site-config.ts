@@ -24,13 +24,11 @@ export const cricketXApp = {
   tagline: "Predict matches. Track your form.",
   description:
     "An Android app for cricket match predictions, built on Firebase with a dedicated backend.",
-  // No verified release artifact is configured yet. Keep false until
-  // a real, checksum-verifiable APK URL is wired in.
   apk: {
-    available: false,
-    url: null as string | null,
-    version: null as string | null,
-    releaseDate: null as string | null,
+    available: true,
+    url: "https://github.com/mohdarsh6717-ship-it/cricket-prediction-app/releases/download/v1.0.1/app-release.apk",
+    version: "1.0.1",
+    releaseDate: "2026-10-22",
   },
 };
 
