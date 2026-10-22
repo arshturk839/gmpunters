@@ -2,34 +2,110 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: light;
+  --gm-green: #087653;
+  --gm-green-deep: #064e3b;
+  --gm-mint: #dff7eb;
+}
+
 @layer base {
   * {
     @apply border-gm-line;
   }
+
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
   }
+
   body {
-    @apply bg-gm-paper text-gm-ink;
+    @apply bg-gm-paper text-gm-ink antialiased;
+    font-feature-settings: "kern";
   }
-  :focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 3px;
+
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid #22a866;
+    outline-offset: 4px;
+  }
+
+  ::selection {
+    color: #fff;
+    background: #087653;
   }
 }
 
+@layer components {
+  .gm-container {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8 lg:px-10;
+  }
+
+  .gm-eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-gm-emerald;
+  }
+
+  .gm-section-title {
+    @apply font-display text-3xl leading-tight tracking-tight text-gm-ink sm:text-4xl;
+  }
+
+  .gm-button-primary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gm-emerald px-6 py-3 text-sm font-bold text-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-gm-emeraldDark hover:shadow-lg;
+  }
+
+  .gm-button-secondary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-gm-line bg-white px-6 py-3 text-sm font-bold text-gm-ink transition duration-200 hover:-translate-y-0.5 hover:border-gm-emerald hover:text-gm-emerald;
+  }
+
+  .gm-card {
+    @apply rounded-3xl border border-gm-line bg-white shadow-[0_8px_32px_rgba(20,50,35,0.04)] transition duration-200;
+  }
+
+  .cx-button-primary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-cx-green px-6 py-3 text-sm font-bold text-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-cx-greenDark;
+  }
+}
+
+.gm-grid-pattern {
+  background-image: linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.gm-hero-glow {
+  background:
+    radial-gradient(ellipse at 80% 10%, rgba(48, 180, 124, .22), transparent 42%),
+    radial-gradient(ellipse at 10% 100%, rgba(16, 110, 79, .3), transparent 45%);
+}
+
+.cx-hero-glow {
+  background:
+    radial-gradient(ellipse at 88% 4%, rgba(34, 168, 102, .13), transparent 42%),
+    radial-gradient(ellipse at 8% 92%, rgba(230, 181, 70, .12), transparent 38%),
+    linear-gradient(135deg, #FAF8F3 0%, #F0F7F0 58%, #FFFFFF 100%);
+}
+
+@keyframes gm-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-gm-rise {
+  animation: gm-rise .65s ease-out both;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
+    transition-duration: .001ms !important;
     scroll-behavior: auto !important;
   }
 }
 
-/* Skip link: visually hidden until focused */
 .skip-link {
   position: absolute;
   left: -9999px;
