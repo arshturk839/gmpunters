@@ -26,7 +26,7 @@ export const cricketXApp = {
     "An Android app for cricket match predictions, built on Firebase with a dedicated backend.",
   apk: {
     available: true,
-    url: "https://github.com/mohdarsh6717-ship-it/cricket-prediction-app/releases/download/v1.0.1/app-release.apk",
+    url: "https://github.com/arshturk839/gm-cricketx-downloads/releases/download/v1.0.1/gm-cricketx-release.apk",
     version: "1.0.1",
     releaseDate: "2026-10-22",
   },
